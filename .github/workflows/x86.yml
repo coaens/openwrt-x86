@@ -9,7 +9,7 @@
 
 name: OpenWrt-COAENS x86
 
-on:
+#on:
 #  push:
 #    branches: 
 #      - master
