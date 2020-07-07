@@ -14,7 +14,7 @@ on:
 #    branches: 
 #      - master
   watch:
-    types: started
+    types: watching
 
 env:
  SSH_ACTIONS: false
