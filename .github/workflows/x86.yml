@@ -15,8 +15,8 @@ on:
 #      - master
 #  watch:
 #    types: started
-  label:
-    types: created
+  issues:
+    types: opened, edited, milestoned
 
 env:
  SSH_ACTIONS: false
