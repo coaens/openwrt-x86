@@ -7,14 +7,14 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: OpenWrt-COAENS x86
+name: OpenWrt-COAENS x86 S
 
 on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: started
+  watch:
+    types: started
 
 env:
  SSH_ACTIONS: false
@@ -23,7 +23,7 @@ env:
 
 jobs:
   build_openwrt:
-    name: Build OpenWrt x86
+    name: Build OpenWrt x86 S
     runs-on: ubuntu-18.04
 
     steps:
@@ -48,10 +48,7 @@ jobs:
 
       - name: Clone Lean's openwrt
         run: |
-          git clone https://github.com/coolsnowwolf/lede.git lede
-          
-          cd lede
-          git reset --hard 33f7cb735300bd9a099995236ed768c8925fec75
+          git clone https://github.com/coolsnowwolf/openwrt.git lede
 
       - name: Git Third Party Plugin
         run: |
@@ -109,13 +106,13 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_x86_Targets
+          name: OpenWrt_x86S_Targets
           path: ./lede/bin/targets/
 
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_x86_Packages
+          name: OpenWrt_x86S_Packages
           path: ./lede/bin/packages/
 
       - name: Create release
