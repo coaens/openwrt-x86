@@ -9,12 +9,12 @@
 
 name: OpenWrt-COAENS x86
 
-#on:
+on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: started
+  watch:
+    types: started
 
 env:
  SSH_ACTIONS: false
