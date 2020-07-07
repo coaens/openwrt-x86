@@ -13,8 +13,10 @@ on:
 #  push:
 #    branches: 
 #      - master
-  watch:
-    types: watching
+#  watch:
+#    types: started
+  label:
+    types: created
 
 env:
  SSH_ACTIONS: false
