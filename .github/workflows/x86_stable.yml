@@ -107,13 +107,13 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_x86S_Targets
+          name: OpenWrt_x86_Targets
           path: ./lede/bin/targets/
 
       - name: Upload Packages
         uses: actions/upload-artifact@master
         with:
-          name: OpenWrt_x86S_Packages
+          name: OpenWrt_x86_Packages
           path: ./lede/bin/packages/
 
       - name: Create release
