@@ -1,2 +1,1 @@
-13.227.223.3/24
 service-channels.clusters.pluto.tv
