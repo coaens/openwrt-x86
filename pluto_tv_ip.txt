@@ -1,1 +1,2 @@
 service-channels.clusters.pluto.tv
+google.com
