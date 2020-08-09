@@ -62,7 +62,6 @@ jobs:
       - name: Update feeds
         run: |
           cd lede
-          sed -i 's/^KERNEL_PATCHVER:=.*$/KERNEL_PATCHVER:=4.14/g' target/linux/x86/Makefile
           sed -i '5s/src-git/#src-git/g' ./feeds.conf.default
           
           sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default

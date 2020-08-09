@@ -7,16 +7,18 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: OpenWrt-COAENS x86
+name: OpenWrt-COAENS x86 L
 
 on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: started
+  schedule:
+    - cron: 0 20 */3 * *
+  watch:
+    types: started
   issues:
-    types: edited
+    types: closed
 
 env:
  SSH_ACTIONS: false
@@ -25,14 +27,13 @@ env:
 
 jobs:
   build_openwrt:
-    name: Build OpenWrt x86
+    name: Build OpenWrt x86 L
     runs-on: ubuntu-18.04
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: master
+        uses: actions/checkout@main
 
       - name: Space cleanup
         env:
@@ -51,9 +52,6 @@ jobs:
       - name: Clone Lean's openwrt
         run: |
           git clone https://github.com/coolsnowwolf/lede.git lede
-          
-          cd lede
-          git reset --hard 33f7cb735300bd9a099995236ed768c8925fec75
 
       - name: Git Third Party Plugin
         run: |
@@ -64,14 +62,14 @@ jobs:
       - name: Update feeds
         run: |
           cd lede
-          sed -i 's/^KERNEL_PATCHVER:=.*$/KERNEL_PATCHVER:=4.14/g' target/linux/x86/Makefile
+          sed -i '5s/src-git/#src-git/g' ./feeds.conf.default
           
           sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: SSH connection to Actions
-        uses: P3TERX/debugger-action@master
+        uses: P3TERX/debugger-action@main
         if: env.SSH_ACTIONS == 'true'
 
       - name: Generate Configuration_x86
@@ -109,13 +107,13 @@ jobs:
         run: find ./lede/bin/targets/ -type d -name "packages" | xargs rm -rf {}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: OpenWrt_x86_Targets
           path: ./lede/bin/targets/
 
       - name: Upload Packages
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: OpenWrt_x86_Packages
           path: ./lede/bin/packages/
