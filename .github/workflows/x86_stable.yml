@@ -62,7 +62,8 @@ jobs:
       - name: Update feeds
         run: |
           cd lede
-          sed -i 's/^KERNEL_PATCHVER:=.*$/KERNEL_PATCHVER:=4.14/g' target/linux/x86/Makefile
+          sed -i 's/@LINUX_5_4/@!LINUX_4_9/g' ./package/lean/luci-app-flowoffload/Makefile
+          sed -i 's/PKG_RELEASE:=19/PKG_RELEASE:=15/g' ./package/lean/luci-app-flowoffload/Makefile
           sed -i '5s/src-git/#src-git/g' ./feeds.conf.default
           
           sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
