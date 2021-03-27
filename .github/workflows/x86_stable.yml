@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-  schedule:
-    - cron: 0 20 */3 * *
+#  schedule:
+#    - cron: 0 20 */3 * *
   watch:
     types: started
   issues:
