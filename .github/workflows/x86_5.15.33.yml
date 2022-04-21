@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: OpenWrt-COAENS x86 L
+name: OpenWrt-COAENS x86 5.15.33
 
 on:
 #  push:
