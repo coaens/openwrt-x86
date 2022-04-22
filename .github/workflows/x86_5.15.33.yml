@@ -53,6 +53,7 @@ jobs:
       - name: Clone Lean's openwrt
         run: |
           git clone https://github.com/coolsnowwolf/lede.git lede
+          cd lede
           git checkout b6dfa17e4e353145cf3f1fd1ceefa3a6b26db1f5
 
       - name: Git Third Party Plugin
