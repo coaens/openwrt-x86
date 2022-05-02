@@ -64,7 +64,7 @@ jobs:
           
       - name: Replace Theme Resources
         run: |
-        cp ./favicon.ico lede/feeds/luci/themes/luci-theme-bootstrap/htdocs/luci-static/bootstrap/favicon.ico
+          cp ./favicon.ico lede/feeds/luci/themes/luci-theme-bootstrap/htdocs/luci-static/bootstrap/favicon.ico
 
       - name: Update feeds
         run: |
