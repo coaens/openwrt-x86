@@ -61,10 +61,6 @@ jobs:
           cd lede/package
           git clone https://github.com/fw876/helloworld.git
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
-          
-      - name: Replace Theme Resources
-        run: |
-          cp ./favicon.ico lede/feeds/luci/themes/luci-theme-bootstrap/htdocs/luci-static/bootstrap/favicon.ico
 
       - name: Update feeds
         run: |
@@ -74,6 +70,10 @@ jobs:
           sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+
+      - name: Replace Theme Resources
+        run: |
+          cp ./favicon.ico lede/feeds/luci/themes/luci-theme-bootstrap/htdocs/luci-static/bootstrap/favicon.ico       
 
       - name: Generate Configuration
         env:
