@@ -73,12 +73,12 @@ jobs:
 
       - name: Generate Configuration_x86
         env:
-          CONFIG_FILE: 'x86.config'
+          CONFIG_FILE: 'customize.config'
         run: |
           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE lede/.config
           sed -i 's/^[ \t]*//g' lede/.config
           
-          chmod +x ./x86_diy.sh && ./x86_diy.sh
+          chmod +x ./diy.sh && ./diy.sh
           
           cd lede && cat .config
           make defconfig
