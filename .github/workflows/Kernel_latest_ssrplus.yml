@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: OpenWrt-COAENS x86 L
+name: OpenWrt-COAENS x86 SSRPlus
 
 on:
 #  push:
@@ -26,7 +26,7 @@ env:
 
 jobs:
   build_openwrt:
-    name: Build OpenWrt x86 L
+    name: Build OpenWrt x86 SSRPlus
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
 
