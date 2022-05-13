@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: OpenWrt-COAENS x86 5.15.33
+name: OpenWrt-COAENS x86 5.15.38
 
 on:
 #  push:
@@ -54,7 +54,7 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede.git lede
           cd lede
-          git checkout b6dfa17e4e353145cf3f1fd1ceefa3a6b26db1f5
+          git checkout 3516c9aa8a3a19ed717bc888905f549dd7b98289
 
       - name: Git Third Party Plugin
         run: |
