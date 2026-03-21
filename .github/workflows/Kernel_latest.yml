@@ -140,12 +140,3 @@ jobs:
         with:
           name: OpenWrt_firmware
           path: ./lede/bin/targets/
-
-      - name: Upload release asset
-        if: github.event == 'release'
-        uses: actions/upload-release-action@v4
-        with:
-          repo_token: ${{ secrets.YOURTOKEN }}
-          file: ./lede/artifact/firmware/*
-          tag: ${{ github.ref }}
-          file_glob: true
